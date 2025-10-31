@@ -1,21 +1,90 @@
-MIT License
+# GoAuthFlow
 
-Copyright (c) 2025 Voltamon
+**GoAuthFlow** is a Go-based authentication microservice designed with clean architecture principles. It provides secure user registration and login endpoints with sha256-hashed password storage, using a modular codebase to promote maintainability and scalability.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## Features
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+- **User Registration** (`POST /v1/register`)
+- **User Login** (`POST /v1/login`)
+- **Password Hashing** for security
+- **SQLite3 Backend** for persistence
+- **Gin Web Framework** for fast HTTP handling
+- **Flexible Architecture:** Data, Service, and Transport layers
+- **Middleware Support:** Logging and error handling
+- **Dockerized Deployment**
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+## Tech Stack
+
+- **Go** 1.24.5+
+- **Gin** (v1.11.0)
+- **SQLite3** (v1.14.32)
+- **Docker**
+
+## Project Structure
+
+API/
+Data/ # Data models and repository
+Service/ # Business logic and authentication
+Transport/ # HTTP handlers, routes, middleware
+DOC/ # License and Readme
+main.go # Application entry point
+Dockerfile # Container configuration
+go.mod # Dependencies
+
+## Installation
+
+1. **Clone the repository:**
+    ```
+    git clone https://github.com/Voltamon/GoAuthFlow.git
+    ```
+2. **Navigate to the project directory:**
+    ```
+    cd GoAuthFlow
+    ```
+3. **Build the project:**
+    ```
+    go build -o goauthflow ./main.go
+    ```
+4. **(Optional) Run with Docker:**
+    ```
+    docker build -t goauthflow .
+    docker run -p 8080:8080 goauthflow
+    ```
+
+## Usage
+
+- **Register a new user:**
+    ```
+    POST /v1/register
+    Content-Type: application/json
+
+    {
+      "email": "user@example.com",
+      "password": "yourpassword"
+    }
+    ```
+- **Login with credentials:**
+    ```
+    POST /v1/login
+    Content-Type: application/json
+
+    {
+      "email": "user@example.com",
+      "password": "yourpassword"
+    }
+    ```
+
+## Contributing
+
+- Fork the repository
+- Create a new branch (`git checkout -b feat/YourFeature`)
+- Commit your changes
+- Open a pull request
+
+## License
+
+MIT License. See [LICENSE](LICENSE) for details.
+
+## Maintainer
+
+- Voltamon (GitHub: [Voltamon](https://github.com/Voltamon))
