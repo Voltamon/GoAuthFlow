@@ -1,6 +1,6 @@
 # GoAuthFlow
 
-**GoAuthFlow** is a Go-based authentication API service designed with clean architecture principles. It provides secure user registration and login endpoints with hashed password storage, using a modular codebase to promote maintainability and scalability.
+**GoAuthFlow** is a Go-based authentication microservice designed with clean architecture principles. It provides secure user registration and login endpoints with sha256-hashed password storage, using a modular codebase to promote maintainability and scalability.
 
 ## Features
 
